@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Monitor | Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <!-- Splash Modal -->
+    <div id="splash-modal" class="splash-modal">
+        <div class="splash-content">
+            <div class="splash-circle-curved-wrapper">
+                <div class="splash-circle">
+                    <img 
+                        src="medical.gif" 
+                        alt="Medical Animated Icon" 
+                        class="medical-gif"
+                    >
+                </div>
+                <!-- PRISM SVG REMOVED -->
+            </div>
+        </div>
+    </div>
+    <!-- Logo in left top with modal meaning -->
+    <div class="auth-logo-bar">
+        <img src="medical.gif" alt="PRISM Logo" class="auth-logo" id="auth-logo">
+    </div>
+    <div id="logo-meaning-modal" class="logo-meaning-modal">
+        <div class="logo-meaning-content">
+            <span class="logo-meaning-close" id="logo-meaning-close">&times;</span>
+            <h2>What is PRISM?</h2>
+            <p>
+                <b>PRISM</b> is a smart health monitoring platform designed to help patients, doctors, and administrators securely manage healthcare data, appointments, and medical records. It connects users for better health insights, supports communication, and makes healthcare management easier and more accessible.
+            </p>
+        </div>
+    </div>
+    <div class="auth-container" style="display:none">
+        <div class="auth-tabs">
+            <button id="login-tab" class="auth-tab active" type="button">Login</button>
+            <button id="register-tab" class="auth-tab" type="button">Register</button>
+        </div>
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form active" autocomplete="on">
+            <h2>Login</h2>
+            <div class="input-group">
+                <label for="login-username">Username or Email</label>
+                <input type="text" id="login-username" name="username" required autocomplete="username">
+            </div>
+            <div class="input-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required autocomplete="current-password">
+            </div>
+            <div class="input-group">
+                <label for="login-role">Role</label>
+                <select id="login-role" name="role" required>
+                    <option value="">Select Role</option>
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <div class="options-row">
+                <label class="remember-me">
+                    <input type="checkbox" name="remember">
+                    Remember Me
+                </label>
+                <a href="#" class="forgot-link">Forgot Password?</a>
+            </div>
+            <button type="submit" class="auth-btn">Login</button>
+            <div class="register-link">
+                Don’t have an account? <a href="#" id="goto-register">Register / Sign Up</a>
+            </div>
+        </form>
+
+        <!-- Registration Form -->
+        <form id="register-form" class="auth-form" autocomplete="on">
+            <h2>Register</h2>
+            <div class="input-group">
+                <label for="reg-role">Register as</label>
+                <select id="reg-role" name="role" required>
+                    <option value="">Select Role</option>
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                </select>
+            </div>
+
+            <!-- Patient Fields -->
+            <div id="patient-fields" style="display:none;">
+                <div class="input-group">
+                    <label for="pname">Full Name</label>
+                    <input type="text" id="pname" name="pname">
+                </div>
+                <div class="input-group-2">
+                    <div>
+                        <label for="page">Age</label>
+                        <input type="number" id="page" name="page" min="0">
+                    </div>
+                    <div>
+                        <label for="pgender">Gender</label>
+                        <select id="pgender" name="pgender">
+                            <option value="">Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="pemail">Email</label>
+                    <input type="email" id="pemail" name="pemail">
+                </div>
+                <div class="input-group">
+                    <label for="pphone">Phone</label>
+                    <input type="tel" id="pphone" name="pphone">
+                </div>
+                <div class="input-group-2">
+                    <div>
+                        <label for="pblood">Blood Type</label>
+                        <input type="text" id="pblood" name="pblood">
+                    </div>
+                    <div>
+                        <label for="pallergy">Allergies</label>
+                        <input type="text" id="pallergy" name="pallergy" placeholder="Comma separated">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="pconditions">Existing Conditions</label>
+                    <input type="text" id="pconditions" name="pconditions" placeholder="Comma separated">
+                </div>
+                <div class="input-group terms">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the <a href="#">Terms and Conditions</a>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Doctor Fields -->
+            <div id="doctor-fields" style="display:none;">
+                <div class="input-group">
+                    <label for="dname">Full Name</label>
+                    <input type="text" id="dname" name="dname">
+                </div>
+                <div class="input-group">
+                    <label for="demail">Email</label>
+                    <input type="email" id="demail" name="demail">
+                </div>
+                <div class="input-group">
+                    <label for="dphone">Phone</label>
+                    <input type="tel" id="dphone" name="dphone">
+                </div>
+                <div class="input-group-2">
+                    <div>
+                        <label for="did">ID Verification/Number</label>
+                        <input type="text" id="did" name="did">
+                    </div>
+                    <div>
+                        <label for="dspecialty">Specialty</label>
+                        <input type="text" id="dspecialty" name="dspecialty">
+                    </div>
+                </div>
+                <div class="input-group terms">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the <a href="#">Terms and Conditions</a>
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="auth-btn">Register</button>
+            <div class="login-link">
+                Already have an account? <a href="#" id="goto-login">Login</a>
+            </div>
+        </form>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>

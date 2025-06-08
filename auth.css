@@ -1,0 +1,289 @@
+body {
+    background: #eaf0fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.splash-modal {
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(255,255,255,0.98);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s;
+}
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.splash-circle-curved-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.splash-circle {
+    width: 180px;
+    height: 180px;
+    background: #36cc86;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px 0 rgba(44,62,80,0.08);
+    margin-bottom: -10px;
+    position: relative;
+    z-index: 2;
+    aspect-ratio: 1/1; /* Ensures perfect circle even if resized */
+}
+
+.medical-gif {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #fff;
+    padding: 0;
+    display: block;
+    aspect-ratio: 1/1; /* Ensures perfect circle for the gif as well */
+}
+.splash-svg-bottom {
+    width: 240px;
+    height: 80px;
+    display: block;
+    margin-top: 0;
+    z-index: 1;
+}
+.medical-gif {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #fff;
+    padding: 0;
+    display: block;
+}
+.auth-logo-bar {
+    width: 100vw;
+    min-height: 62px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 10;
+}
+.auth-logo {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px 0 rgba(44,62,80,0.09);
+    margin: 16px 0 0 20px;
+    background: #36cc86;
+    object-fit: cover;
+    border: 3px solid #fff;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.auth-logo:hover {
+    box-shadow: 0 6px 24px 0 rgba(44,62,80,0.18);
+    transform: scale(1.07);
+}
+.logo-meaning-modal {
+    display: none;
+    position: fixed;
+    z-index: 12000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.32);
+    align-items: center;
+    justify-content: center;
+}
+.logo-meaning-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px 0 rgba(44,62,80,0.17);
+    padding: 2.2rem 2.1rem 1.5rem 2.1rem;
+    max-width: 370px;
+    margin: 10vh auto 0 auto;
+    position: relative;
+    text-align: center;
+    color: #24664d;
+    font-size: 1.11rem;
+    animation: fadeInScale 0.3s;
+}
+.logo-meaning-close {
+    position: absolute;
+    right: 18px;
+    top: 13px;
+    font-size: 2.0rem;
+    color: #aaa;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.logo-meaning-close:hover {
+    color: #36cc86;
+}
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+}
+.auth-container {
+    background: #fff;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.09);
+    width: 100%;
+    max-width: 430px;
+    margin-bottom: 32px;
+}
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+.auth-tab {
+    flex: 1;
+    padding: 0.7em 0;
+    text-align: center;
+    cursor: pointer;
+    background: #f6f8fc;
+    color: #36cc86;
+    border: none;
+    outline: none;
+    font-size: 1.08rem;
+    font-weight: 500;
+    border-radius: 6px 6px 0 0;
+    margin: 0 2px;
+    transition: background 0.2s, color 0.2s;
+}
+.auth-tab.active {
+    background: #36cc86;
+    color: #fff;
+}
+.auth-form {
+    display: none;
+}
+.auth-form.active {
+    display: block;
+}
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 1.1rem;
+    color: #334e68;
+}
+.input-group { margin-bottom: 1.1rem; }
+.input-group label {
+    display: block;
+    font-size: 0.99rem;
+    margin-bottom: 0.35rem;
+    color: #555;
+}
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 0.68rem;
+    border: 1px solid #d0d2d6;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    background: #f8fafc;
+    transition: border 0.2s;
+}
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #36cc86;
+    outline: none;
+}
+.input-group-2 {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+}
+.input-group-2 > div { flex: 1; }
+.options-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+    font-size: 0.98rem;
+}
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    cursor: pointer;
+}
+.forgot-link {
+    color: #36cc86;
+    text-decoration: none;
+    font-size: 0.97rem;
+}
+.forgot-link:hover { text-decoration: underline; }
+.auth-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #36cc86;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    transition: background 0.2s;
+}
+.auth-btn:hover { background: #259e62; }
+.register-link, .login-link {
+    text-align: center;
+    font-size: 0.98rem;
+    color: #555;
+}
+.register-link a, .login-link a {
+    color: #36cc86;
+    text-decoration: none;
+    font-weight: 500;
+}
+.register-link a:hover, .login-link a:hover { text-decoration: underline; }
+.input-group.terms { margin-top: 0.5em; }
+.input-group.terms label {
+    font-size: 0.97rem;
+    color: #444;
+}
+.input-group.terms input[type="checkbox"] { margin-right: 0.4em; }
+@media (max-width: 600px) {
+    .splash-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .medical-gif {
+        width: 48px;
+        height: 48px;
+    }
+    .splash-svg-bottom {
+        width: 140px;
+        height: 50px;
+    }
+    .auth-logo-bar {
+        min-height: 44px;
+    }
+    .auth-logo {
+        width: 36px;
+        height: 36px;
+        margin: 10px 0 0 8px;
+    }
+    .logo-meaning-content {
+        padding: 1.2rem 0.7rem 1.1rem 0.7rem;
+        max-width: 94vw;
+        font-size: 0.98rem;
+    }
+}
